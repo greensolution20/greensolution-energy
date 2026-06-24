@@ -9,7 +9,7 @@ export default function BranchesPage() {
     {
       id: 'beawar',
       name: 'Beawar Branch',
-      address: 'Church Road, Chang Gate, Beawar, Rajasthan 305901',
+      address: 'Church Road, Chang Gate Beawar, Rajasthan 305901',
       phone: '+91 81070 66447',
       altPhone: '+91 94686 66447',
       email: 'greensworkforce@gmail.com',
@@ -19,20 +19,19 @@ export default function BranchesPage() {
     {
       id: 'ajmer',
       name: 'Ajmer Branch',
-      address: 'Opposite Madar Junction, Ajmer, Rajasthan 305001',
+      address: 'Opposite Madar Junction Ajmer, Rajasthan 305001',
       phone: '+91 81070 66447',
       altPhone: '+91 94686 66447',
-      email: 'ajmer.greens@gmail.com',
+      email: 'greensworkforce@gmail.com',
       isHead: false,
       mapLink: 'https://maps.google.com/maps?q=Mansarovar%20Jaipur&t=&z=13&ie=UTF8&iwloc=&output=embed'
     },
     {
       id: 'sikar',
       name: 'Sikar Branch',
-      address: 'Near Khijoor Wale Balaji, ringus, Sikar, Rajasthan 332404',
-      phone: '+91 81070 66447',
-      altPhone: '+91 94686 66447',
-      email: 'sikar.greens@gmail.com',
+      address: 'Near Khijoor Wale Balaji Ringus, Sikar, Rajasthan 332404',
+      phone: '+91 98879 99421',
+      email: 'greensworkforce@gmail.com',
       isHead: false,
       mapLink: 'https://maps.google.com/maps?q=Vaishali%20Nagar%20Ajmer&t=&z=13&ie=UTF8&iwloc=&output=embed'
     }

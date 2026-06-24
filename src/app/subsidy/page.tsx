@@ -20,6 +20,32 @@ export default function SubsidyCalculator() {
 
   return (
     <div className="max-w-5xl mx-auto p-4 sm:p-6">
+      <style jsx global>{`
+        input[type=range] {
+          -webkit-appearance: none;
+          width: 100%;
+          background: transparent;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+          width: 100%;
+          height: 8px;
+          background: #e5e7eb;
+          border-radius: 5px;
+        }
+        input[type=range]::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          height: 20px;
+          width: 20px;
+          border-radius: 50%;
+          background: #2fa144;
+          cursor: pointer;
+          margin-top: -6px;
+        }
+        /* Yeh wo green line hai jo slider ke upar ayegi */
+        input[type=range]:focus::-webkit-slider-runnable-track {
+          background: #e5e7eb;
+        }
+      `}</style>
       
       {/* HIGHLIGHT HEADER SECTION */}
       <div className="text-center mb-8 sm:mb-12">
@@ -34,20 +60,21 @@ export default function SubsidyCalculator() {
         </p>
       </div>
 
-      {/* GRID LAYOUT: Mobile par ek ke niche ek ayega */}
+      {/* GRID LAYOUT */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        {/* Left side: Calculator */}
         <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-gray-100">
           <label className="text-[10px] sm:text-xs font-bold text-gray-500 uppercase">Your Avg Monthly Bill</label>
           <div className="text-2xl sm:text-3xl font-black text-[#f26822] mb-4">₹{bill.toLocaleString()}</div>
           
+          {/* Slider */}
           <input 
             type="range" min="1000" max="10000" step="1000" value={bill}
             onChange={(e) => setBill(Number(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg cursor-pointer accent-[#2fa144]"
           />
-          <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+          
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-100 overflow-hidden">
+            <div className="-mx-4 border-t border-gray-300 mb-4"></div>
             <p className="text-[10px] font-bold text-gray-400 uppercase">Recommended Size</p>
             <h3 className="text-xl sm:text-2xl font-black text-[#0f1c2c]">{size}</h3>
           </div>
@@ -79,7 +106,6 @@ export default function SubsidyCalculator() {
         </div>
       </div>
 
-      {/* LINKS SECTION */}
       <div className="flex flex-col items-center sm:items-start pl-0 sm:pl-8 gap-3 mt-8">
         <Link href="/subsidy/surya-ghar" className="font-black text-[#0f1c2c] hover:text-[#2fa144] transition text-xs uppercase tracking-wide">
           • PM Surya Ghar Yojana

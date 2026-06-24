@@ -11,7 +11,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'Solar Services', href: '/services?type=solar' },
     { name: 'Electrical & Other', href: '/services?type=electrical' },
-    { name: 'Requirement', href: '/requirements' },
+    { name: 'Recruitment', href: '/Recruitment' },
     { name: 'Subsidy Guide', href: '/subsidy' },
     { name: 'Projects', href: '/projects' },
     { name: 'About Us', href: '/about' },
