@@ -10,8 +10,7 @@ export default function BranchesPage() {
       id: 'beawar',
       name: 'Beawar Branch',
       address: 'Church Road, Chang Gate Beawar, Rajasthan 305901',
-      phone: '+91 81070 66447',
-      altPhone: '+91 94686 66447',
+      phone: '+91 94136 50200',
       email: 'greensworkforce@gmail.com',
       isHead: true,
       mapLink: 'https://maps.google.com/maps?q=23%20Subhash%20Nagar%20Beawar&t=&z=13&ie=UTF8&iwloc=&output=embed'

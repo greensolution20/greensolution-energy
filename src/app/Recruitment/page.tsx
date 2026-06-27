@@ -3,16 +3,15 @@ import { useState } from 'react';
 
 export default function WorkRequirementPage() {
   const [submitted, setSubmitted] = useState(false);
-  // 1. Form data ke liye state
   const [formData, setFormData] = useState({ 
-    name: '', phone: '', exp: '', specialization: '', projects: '' 
+    name: '', phone: '', exp: '', specialization: '', docId: '', projects: '' 
   });
 
-  // 2. WhatsApp submit handler
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const phone = "9413650200"; // Naya number jo tumne diya
-    const msg = `*New Job Application*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Experience:* ${formData.exp}%0A*Specialization:* ${formData.specialization}%0A*Projects:* ${formData.projects}`;
+    const phone = "9413650200";
+    // Aadhaar reference is redacted for privacy
+    const msg = `*New Recruitment Application*%0A%0A*Name:* ${formData.name}%0A*Phone:* ${formData.phone}%0A*Experience:* ${formData.exp}%0A*Specialization:* ${formData.specialization}%0A*Doc/ID Reference:* [Aadhaar Redacted]%0A*Projects:* ${formData.projects}`;
     
     window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
     setSubmitted(true);
@@ -23,7 +22,7 @@ export default function WorkRequirementPage() {
       <div className="max-w-4xl mx-auto flex flex-col items-center">
         
         {/* Header Text */}
-        <div className="text-center mb-12 px-2">
+        <div className="text-center mb-8 px-2">
           <h2 className="text-sm font-black text-[#2fa144] uppercase tracking-widest mb-3">
             JOIN OUR WORKFORCE
           </h2>
@@ -31,9 +30,20 @@ export default function WorkRequirementPage() {
             Are you a Skilled Electrician?
           </h1>
           <p className="text-gray-600 text-sm sm:text-base font-medium max-w-lg mx-auto leading-relaxed">
-            We are looking for passionate technicians to join our growing solar and electrical energy family. 
-            Fill out the form below to showcase your expertise and start working on premium projects.
+            We are looking for passionate technicians to join our growing solar and electrical energy family.
           </p>
+        </div>
+
+        {/* QR Code Section (Added at the top) */}
+        <div className="flex flex-col sm:flex-row gap-6 mb-10 w-full max-w-xl justify-center">
+          <div className="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+            <img src="/requirement-qr.png" alt="Requirement QR" className="w-24 h-24 mb-2" />
+            <span className="text-[10px] font-bold text-gray-500 uppercase">Requirement Form</span>
+          </div>
+          <div className="flex flex-col items-center bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
+            <img src="/recruitment-qr.png" alt="Recruitment QR" className="w-24 h-24 mb-2" />
+            <span className="text-[10px] font-bold text-gray-500 uppercase">Recruitment Form</span>
+          </div>
         </div>
 
         {/* Form Container */}
@@ -45,12 +55,13 @@ export default function WorkRequirementPage() {
               <p className="text-sm text-gray-500 mt-2">Our team will review your profile soon.</p>
             </div>
           ) : (
-            // 3. onSubmit handler add kiya
             <form onSubmit={handleWhatsAppSubmit} className="space-y-6">
               <div className="grid grid-cols-1 gap-5">
                 <input type="text" placeholder="Full Name" className="w-full p-4 bg-gray-50 border rounded-xl focus:border-[#2fa144] outline-none" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
                 <input type="tel" placeholder="Phone Number" className="w-full p-4 bg-gray-50 border rounded-xl focus:border-[#2fa144] outline-none" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
                 <input type="text" placeholder="Years of Experience" className="w-full p-4 bg-gray-50 border rounded-xl focus:border-[#2fa144] outline-none" required value={formData.exp} onChange={(e) => setFormData({...formData, exp: e.target.value})} />
+                
+                <input type="text" placeholder="Aadhar/ID Reference Number" className="w-full p-4 bg-gray-50 border rounded-xl focus:border-[#2fa144] outline-none" required value={formData.docId} onChange={(e) => setFormData({...formData, docId: e.target.value})} />
                 
                 <select className="w-full p-4 bg-gray-50 border rounded-xl text-gray-500 focus:border-[#2fa144] outline-none" value={formData.specialization} onChange={(e) => setFormData({...formData, specialization: e.target.value})} required>
                   <option value="">Specialization (Solar/Electric/Wind)</option>
